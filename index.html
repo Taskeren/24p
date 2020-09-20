@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>24 Points</title>
+		<link rel="stylesheet" href="24p.css" type="text/css">
+		<script src="24p.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div id="inputArea">
+				<input type="number" value="1" min="1" max="13" id="a">
+				<input type="number" value="1" min="1" max="13" id="b">
+				<input type="number" value="1" min="1" max="13" id="c">
+				<input type="number" value="1" min="1" max="13" id="d">
+				<input type="button" value="Calc" onclick="calcIt()">
+			</div>
+			<div id="outputArea">
+				<span>Insert the Number and Calculate.</span>
+			</div>
+		</div>
+	</body>
+	<script>
+		function calcIt() {
+			let o = document.querySelector("#outputArea");
+			let a = document.querySelector("#a");
+			let b = document.querySelector("#b");
+			let c = document.querySelector("#c");
+			let d = document.querySelector("#d");
+			
+			// Clear Output
+			o.innerHTML = "Loading...";
+			
+			// Calculate
+			let results = point24(a.value, b.value, c.value, d.value);
+			
+			// Outprint
+			o.innerHTML = "";
+			if(results.length == 0) {
+				o.innerHTML = "No Possible Formula."
+			} else {
+				for(let i=0; i<results.length; i++) {
+					o.innerHTML += results[i] + "<br>";
+				}
+			}
+			
+		}
+	</script>
+</html>
